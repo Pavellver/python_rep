@@ -1,0 +1,35 @@
+with open("input.txt") as f:
+	number_of_steps = int(f.read())
+
+way = []
+
+for i in range(1, number_of_steps+1):
+    if number_of_steps - i >= 0:
+        way.append(i)
+        number_of_steps -= i
+    else:
+        way.append(number_of_steps)
+        break
+    if number_of_steps - i >= 0:
+        way.append(i)
+        number_of_steps -= i
+    else:
+        way.append(number_of_steps)
+        break
+    
+a = 0
+b = 0
+for ind, x in enumerate(way):
+    if ind % 2 == 0:
+        if ind % 4 == 0:
+            a -= x
+        else:
+            a += x
+    else:
+        if ind % 4 == 1:
+            b -= x
+        else:
+            b += x
+
+with open("output.txt", "w") as file:
+    file.write(f"{a} {b}")
