@@ -1,0 +1,50 @@
+This module is responsible for his number pronunciation. He has to click to input all of the numerical digits in a figure, so when there are big numbers it can take him a long time. Help the robot to speak properly and increase his number processing speed by writing a new speech module for him. All the words in the string must be separated by exactly one space character. Be careful with spaces - it's hard to see if you place two spaces instead one.
+Input: An integer. Output: String.
+Precondition: 0 < number < 1000
+
+
+FIRST_TEN = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+SECOND_TEN = [
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+]
+OTHER_TENS = [
+    "ten",
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "sixty",
+    "seventy",
+    "eighty",
+    "ninety",
+]
+HUNDRED = "hundred"
+
+
+def checkio(num: int) -> str:
+    string = str(num).rjust(3, '0')
+    if int(string[0]):
+        third = FIRST_TEN[int(string[0])-1] + ' ' + HUNDRED
+    else:
+        third = ''    
+    if int(string[1]):
+        second = OTHER_TENS[int(string[1])-1]
+    else:
+        second = ''
+    if int(string[2]):
+        first = FIRST_TEN[int(string[2])-1]
+    else:
+        first = ''
+    if 9 < num % 100 < 20:
+        second = SECOND_TEN[int(string[2])]
+        first = ''
+    return ' '.join(f'{third} {second} {first}'.split())
