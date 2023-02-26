@@ -1,0 +1,30 @@
+Your function should create a list of lists, that represents a two-dimensional grid with the given number of rows and cols. This grid should contain the integers from start to start + rows * cols - 1 in ascending order, but the elements of every odd-index row have to be listed in descending order, so that when read in ascending order, the numbers zigzag through the two-dimensional grid.
+Input: Two integers - rows and columns. One optional integer - start. Output: List of lists.
+
+Examples:
+assert create_zigzag(3, 5) == [[1, 2, 3, 4, 5], [10, 9, 8, 7, 6], [11, 12, 13, 14, 15]]
+assert create_zigzag(5, 1) == [[1], [2], [3], [4], [5]]
+assert create_zigzag(3, 3, 5) == [[5, 6, 7], [10, 9, 8], [11, 12, 13]]
+
+def create_zigzag(rows: int, cols: int, start: int = 1) -> list[list[int]]:
+    new_start = start
+    a = []
+    b = []
+    if not cols:
+        for i in range(rows):
+            a.append([])
+        return a
+    for d in range(rows):
+        if not d%2:
+            for i in range(new_start, new_start+cols):
+                b.append(i)
+            a.append(b)
+            new_start = b[-1]
+            b = []
+        else:
+            for z in range(new_start+cols, new_start, -1):
+                b.append(z)
+            a.append(b)
+            new_start = b[0]+1
+            b = []
+    return a
