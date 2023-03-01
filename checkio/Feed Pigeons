@@ -2,7 +2,6 @@ I start to feed one of the pigeons. A minute later two more fly by and a minute 
 Input: A quantity of portions wheat as a positive integer. Output: The number of fed pigeons as an integer.
 Precondition: 0 < N < 105.
 
-
 def checkio(food: int) -> int:
     a, b, c = [0], [0], [0]
     for x in range(0, 84):
