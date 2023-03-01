@@ -2,7 +2,6 @@ This module is responsible for his number pronunciation. He has to click to inpu
 Input: An integer. Output: String.
 Precondition: 0 < number < 1000
 
-
 FIRST_TEN = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 SECOND_TEN = [
     "ten",
@@ -28,7 +27,6 @@ OTHER_TENS = [
     "ninety",
 ]
 HUNDRED = "hundred"
-
 
 def checkio(num: int) -> str:
     string = str(num).rjust(3, '0')
