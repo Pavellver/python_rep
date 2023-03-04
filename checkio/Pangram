@@ -1,0 +1,14 @@
+For this mission, we will use the latin alphabet (A-Z). You are given a text with latin letters and punctuation symbols. You need to check if the sentence is a pangram or not. Case does not matter.
+Input: A text as a string. Output: Whether the sentence is a pangram or not as a boolean.
+Examples:
+assert check_pangram("The quick brown fox jumps over the lazy dog.") == True
+assert check_pangram("ABCDEF") == False
+assert check_pangram("abcdefghijklmnopqrstuvwxyz") == True
+assert check_pangram("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == True
+
+def check_pangram(text: str) -> bool:
+    a = ''
+    for i in text.lower():
+        if i.isalpha():
+            a += i
+    return ''.join(sorted(set(a))) == "abcdefghijklmnopqrstuvwxyz"
