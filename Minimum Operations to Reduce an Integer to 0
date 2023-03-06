@@ -1,9 +1,0 @@
-class Solution:
-    def minOperations(self, n: int) -> int:
-        c = [2**i for i in range(18)]
-        counter = 0
-        while n != 0:
-            d = [abs(n-k) for k in c]
-            counter += 1
-            n = min(d)
-        return counter
