@@ -1,0 +1,9 @@
+Recursively Printing Numbers 1 - 10
+
+def f(start, end):
+    if start == end+1:
+        return
+    print(start)
+    f(start+1, end)
+
+f(1, 10)
